@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: digilians-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: digilians-db
+  template:
+    metadata:
+      labels:
+        app: digilians-db
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:15
+          env:
+            - name: POSTGRES_USER
+              value: "postgres"
+            - name: POSTGRES_PASSWORD
+              value: "rootpassword"
+            - name: POSTGRES_DB
+              value: "digilians"
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - name: postgres-data
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: postgres-data
+          emptyDir: {}

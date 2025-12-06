@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: digilians-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: digilians-backend
+  template:
+    metadata:
+      labels:
+        app: digilians-backend
+    spec:
+      containers:
+        - name: backend
+          image: manarelabsi10/digilians-backend:latest
+          env:
+            - name: DB_HOST
+              value: "digilians-db-service"
+            - name: DB_USER
+              value: "postgres"
+            - name: DB_PASSWORD
+              value: "rootpassword"
+            - name: DB_NAME
+              value: "digilians"
+            - name: DB_PORT
+              value: "5432"
+          ports:
+            - containerPort: 8000
+
+
+
+
+
