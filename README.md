@@ -5,8 +5,8 @@ A 3-tier containerized learning platform application.
 ## Architecture
 
 - **Frontend**:
-   React.js
-   Runs inside a Kubernetes Deployment
+   -React.js
+   -Runs inside a Kubernetes Deployment
    Exposed via a NodePort service
    Internal Container Port: 80
    External NodePort: 30081
