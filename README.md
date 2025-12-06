@@ -5,33 +5,33 @@ A 3-tier containerized learning platform application.
 ## Architecture
 
 - **Frontend**:
-   -React.js
-   -Runs inside a Kubernetes Deployment
-   Exposed via a NodePort service
-   Internal Container Port: 80
+   React.js , 
+   Runs inside a Kubernetes Deployment , 
+   Exposed via a NodePort service , 
+   Internal Container Port: 80 , 
    External NodePort: 30081
   
 - **Backend**:
-   Python FastAPI
-   Communicates with PostgreSQL inside the cluster
-   Exposed through a NodePort service
-   Internal Container Port: 8000
+   Python FastAPI , 
+   Communicates with PostgreSQL inside the cluster , 
+   Exposed through a NodePort service , 
+   Internal Container Port: 8000 , 
    External NodePort: 30080
   
 - **Database**:
-   PostgreSQL
-   Exposed internally via a ClusterIP service only (no external access)
+   PostgreSQL , 
+   Exposed internally via a ClusterIP service only (no external access) , 
    Port: 5432
 
-  ## Kubernetes Components Used
-  - **Deployments**: (frontend, backend, database)
+## Kubernetes Components Used
+  - **Deployments**: (frontend, backend, database) , 
   - **Services**: NodePort (frontend & backend) ClusterIP (database)
 
   
 
 ## Features
 
-- View all courses
+- View all courses 
 - Add new courses
 - Delete courses
 - RESTful API
