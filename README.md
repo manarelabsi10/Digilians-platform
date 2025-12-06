@@ -4,9 +4,30 @@ A 3-tier containerized learning platform application.
 
 ## Architecture
 
-- **Frontend**: React.js Runs inside a Kubernetes Deployment Exposed via a NodePort service Internal Container Port: 80 External NodePort: 30081
-- **Backend**: Python FastAPI Communicates with PostgreSQL inside the cluster Exposed through a NodePort service Internal Container Port: 8000 External NodePort: 30080
-- **Database**: PostgreSQL (Port 5432)
+- **Frontend**:
+   React.js
+   Runs inside a Kubernetes Deployment
+   Exposed via a NodePort service
+   Internal Container Port: 80
+   External NodePort: 30081
+  
+- **Backend**:
+   Python FastAPI
+   Communicates with PostgreSQL inside the cluster
+   Exposed through a NodePort service
+   Internal Container Port: 8000
+   External NodePort: 30080
+  
+- **Database**:
+   PostgreSQL
+   Exposed internally via a ClusterIP service only (no external access)
+   Port: 5432
+
+  ## Kubernetes Components Used
+  - **Deployments**: (frontend, backend, database)
+  - **Services**: NodePort (frontend & backend) ClusterIP (database)
+
+  
 
 ## Features
 
@@ -16,26 +37,18 @@ A 3-tier containerized learning platform application.
 - RESTful API
 
 ## Running the Application
-
-```bash
-# Build and start all services
-docker-compose up --build
-
-# Run in detached mode
-docker-compose up -d --build
-
-# Stop all services
-docker-compose down
-
-# Stop and remove volumes
-docker-compose down -v
-```
-
+-**Apply all manifests**
+  kubectl apply -f k8s/  (Change the path according to where your YAML files are located)
+-**Check pods**
+  kubectl get pods
+-**Check services**
+  kubectl get svc
+  
 ## Access
 
-- Frontend: http://localhost:3000
-- Backend API: http://localhost:8000
-- API Docs: http://localhost:8000/docs
+- Frontend: http://<Node-IP>:30081
+- Backend API: http://<Node-IP>:30080
+- API Docs: http://<Node-IP>:30080/docs
 
 ## Database Credentials
 
