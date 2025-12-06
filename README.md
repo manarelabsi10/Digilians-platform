@@ -38,11 +38,11 @@ A 3-tier containerized learning platform application.
 
 ## Running the Application
 -**Apply all manifests**
-  kubectl apply -f k8s/       (Change the path according to where your YAML files are located)
+  - kubectl apply -f k8s/       (Change the path according to where your YAML files are located)
 -**Check pods**
-  kubectl get pods
+  - kubectl get pods
 -**Check services**
-  kubectl get svc
+  - kubectl get svc
   
 ## Access
 
