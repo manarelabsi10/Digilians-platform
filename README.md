@@ -5,23 +5,23 @@ A 3-tier containerized learning platform application.
 ## Architecture
 
 - **Frontend**:
-   React.js , 
-   Runs inside a Kubernetes Deployment , 
-   Exposed via a NodePort service , 
-   Internal Container Port: 80 , 
-   External NodePort: 30081
+   - React.js
+   - Runs inside a Kubernetes Deployment  
+   - Exposed via a NodePort service  
+   - Internal Container Port: 80 
+   - External NodePort: 30081
   
 - **Backend**:
-   Python FastAPI , 
-   Communicates with PostgreSQL inside the cluster , 
-   Exposed through a NodePort service , 
-   Internal Container Port: 8000 , 
-   External NodePort: 30080
+   - Python FastAPI , 
+   - Communicates with PostgreSQL inside the cluster 
+   - Exposed through a NodePort service 
+   - Internal Container Port: 8000 
+   - External NodePort: 30080
   
 - **Database**:
-   PostgreSQL , 
-   Exposed internally via a ClusterIP service only (no external access) , 
-   Port: 5432
+   - PostgreSQL
+   - Exposed internally via a ClusterIP service only (no external access) 
+   - Port: 5432
 
 ## Kubernetes Components Used
   - **Deployments**: (frontend, backend, database) , 
@@ -38,7 +38,7 @@ A 3-tier containerized learning platform application.
 
 ## Running the Application
 -**Apply all manifests**
-  kubectl apply -f k8s/  (Change the path according to where your YAML files are located)
+  kubectl apply -f k8s/       (Change the path according to where your YAML files are located)
 -**Check pods**
   kubectl get pods
 -**Check services**
